@@ -1,7 +1,6 @@
 import os
 import time
 import requests
-from collections import defaultdict
 from dataclasses import dataclass
 
 TOKEN_ACCOUNT_BALANCE_ADDR = ("https://api.bscscan.com/api"
@@ -12,7 +11,7 @@ TOKEN_ACCOUNT_BALANCE_ADDR = ("https://api.bscscan.com/api"
                               "&tag=latest"
                               "&apikey={api_key}")
 
-API_KEY = os.getenv('BSC_API_KEY', 'M5X443JUB88HN79X5AEA6GIPSVIQ8ND6RB')
+API_KEY = os.getenv('BSC_API_KEY')
 
 COINMARKETCAP_LOUD_ID = 12048
 COINMARKETCAP_ZOO_ID = 11556

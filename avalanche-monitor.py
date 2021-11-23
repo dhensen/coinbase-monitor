@@ -16,7 +16,7 @@ TOKEN_ACCOUNT_BALANCE_ADDR = (f"{API_BASE_URL}"
                               "&tag=latest"
                               "&apikey={api_key}")
 
-API_KEY = os.getenv('SNOWTRACE_API_KEY', '3Y6G6A3JP7F45SZ1YNR4A9DBWTSNWBSB1T')
+API_KEY = os.getenv('SNOWTRACE_API_KEY')
 
 COINMARKETCAP_TIME_ID = 11585
 # COINMARKETCAP_ZOO_ID = 11556
