@@ -17,7 +17,18 @@ async def test(request):
 def get_data(slug):
     if slug == 'wonderland-time-staking':
         headers, data = wonderland_time_reader.get_records()
-        return {'wonderland-time-staking': {'headers': headers, 'data': data[::-1]}}
+        series = {key: [] for key in headers}
+        for row in data:
+            for i, key in enumerate(headers):
+                series[key].append(row[i])
+
+        return {
+            'wonderland-time-staking': {
+                'headers': headers,
+                'data': data[::-1],
+                'series': series
+            }
+        }
 
     return {'undefined': []}
 
