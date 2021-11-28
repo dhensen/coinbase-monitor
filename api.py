@@ -4,7 +4,10 @@ from sanic import Sanic
 from sanic.response import json
 from recorder import DataReader
 
+from sanic_cors import CORS
+
 app = Sanic("staking-stats")
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 wonderland_time_reader = DataReader('wonderland-time-staking-stats')
 
@@ -20,7 +23,13 @@ def get_data(slug):
         series = {key: [] for key in headers}
         for row in data:
             for i, key in enumerate(headers):
-                series[key].append(row[i])
+                value = row[i]
+                try:
+                    value = float(value)
+                except ValueError:
+                    pass
+
+                series[key].append(value)
 
         return {
             'wonderland-time-staking': {

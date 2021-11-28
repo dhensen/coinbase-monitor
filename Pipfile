@@ -12,6 +12,7 @@ ccxt = "*"
 tabulate = "*"
 requests = "*"
 sanic = "*"
+sanic-cors = "*"
 
 [requires]
 python_version = "3.9"
